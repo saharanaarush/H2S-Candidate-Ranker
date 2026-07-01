@@ -1,0 +1,6 @@
+# The ranking step (rank.py) uses the Python standard library ONLY — no
+# third-party packages, no network. This satisfies the hackathon compute
+# constraints (CPU-only, offline, <5 min).
+#
+# Streamlit is needed ONLY for the optional sandbox demo (app.py).
+streamlit>=1.36.0

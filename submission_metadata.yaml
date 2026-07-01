@@ -1,0 +1,79 @@
+# Redrob Hackathon — Submission Metadata
+# Mirrors the portal metadata (submission_spec Section 10.2). Fields marked
+# TODO must be completed by your team before submitting.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "Neural Forgers"
+
+primary_contact:
+  name: "Aarush Saharan"
+  email: "saharanaarush@gmail.com"
+  phone: "+91 9205602207"
+
+team_members:
+  - name: "Ranbir Singh"
+    email: "ranbirdalipsingh@gmail.com"
+    role: "Coder"
+
+  - name: "Aakarsh Srivastava"
+    email: "aakarshsrivastava0016@gmail.com"
+    role: "Coder"
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/saharanaarush/H2S-Candidate-Ranker"
+sandbox_link: "https://huggingface.co/spaces/TODO_USERNAME/redrob-ranker"   # app.py (Streamlit)
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11 Home Single Language"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.10+"
+  os: "Windows"
+  uses_gpu_for_inference: false        # ranker is pure-CPU
+  has_network_during_ranking: false    # no API calls of any kind
+  pre_computation_required: false      # no embeddings/models to pre-train
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration (transparency only)
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+ai_usage_summary: |
+  Used Claude for spec analysis, architecture discussion, and to help
+  author and review the scoring/reasoning code. No candidate data was sent to any
+  hosted LLM during ranking. The ranking step is pure-Python, CPU-only, offline.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Transparent feature-based ranker, no LLM in the loop. Seven weighted components
+  scored from each profile: title/career bucket (the decisive anti-keyword-stuffer
+  signal), NLP/IR domain relevance (penalising vision/speech/robotics-only),
+  trust-weighted required skills (endorsements + months-used + assessment scores
+  discount "expert" claims with zero backing), 5-9yr experience fit, product-company
+  vs services-only history, Pune/Noida location fit, and education. A multiplicative
+  behavioural-availability modifier down-weights inactive / low-response / not-open
+  candidates. An honeypot gate detects impossible profiles (date-vs-duration
+  mismatches, "expert" skills with 0 months used, tenure exceeding total experience)
+  and sinks them below the cutoff. A small evidence-based tie-break orders saturated
+  top candidates by merit rather than candidate_id. Runtime ~55s for 100K candidates
+  on one CPU core; stdlib only.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
