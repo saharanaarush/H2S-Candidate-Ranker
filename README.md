@@ -80,10 +80,3 @@ Deploy this `app.py` to Streamlit Cloud or a HuggingFace Space and put the URL i
 * Memory: streams line-by-line, keeps only a small shortlist (≤ 16 GB ✓)
 * Compute: CPU-only, standard library only (no GPU ✓)
 * Network: none during ranking (✓)
-
-## Before you submit
-
-1. Fill the `TODO` fields in `submission_metadata.yaml` (team name, GitHub URL,
-   sandbox URL, contact details, compute environment).
-2. Push this directory to a GitHub repo and deploy `app.py` as your sandbox.
-3. Re-run the reproduce command on the official `candidates.jsonl` and validate.
