@@ -24,7 +24,7 @@ team_members:
 # Code and reproducibility
 # ============================================================================
 github_repo: "https://github.com/saharanaarush/H2S-Candidate-Ranker"
-sandbox_link: "https://huggingface.co/spaces/TODO_USERNAME/redrob-ranker"   # app.py (Streamlit)
+sandbox_link: "https://h2s-candidate-ranker-zgeqqjywssuci873v5nzsw.streamlit.app/"   # app.py (Streamlit)
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
 # ============================================================================
